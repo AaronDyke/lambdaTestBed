@@ -1,13 +1,12 @@
 {
   "name": "lambda_test_bed",
   "version": "0.1.0",
-  "bin": {
-    "lambda_test_bed": "bin/lambda_test_bed.js"
-  },
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
     "test": "jest",
+    "pretty": "rm -r package-lock.json  *.js **/*.js  *.d.ts **/*.d.ts && rm -rf node_modules cdk.out",
+    "ugly": "npm install && tsc && cdk synth",
     "cdk": "cdk"
   },
   "devDependencies": {
@@ -20,7 +19,9 @@
     "typescript": "~3.6.2"
   },
   "dependencies": {
+    "@aws-cdk/aws-lambda": "^1.14.0",
     "@aws-cdk/core": "^1.12.0",
+    "@types/aws-lambda": "^8.10.34",
     "source-map-support": "^0.5.9"
   }
 }
