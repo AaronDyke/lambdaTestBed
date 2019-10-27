@@ -1,5 +1,5 @@
 import { Handler, APIGatewayEvent, Context } from 'aws-lambda';
-
+import { TestBedResult } from './testBedCommon';
 
 let firstRun = true;
 
@@ -17,7 +17,7 @@ export const handler: Handler = async (event: APIGatewayEvent, context: Context)
 
     const number = fib(35);
 
-    let returnBody = {
+    let returnBody: TestBedResult = {
         isColdStart: coldStart,
         remainingTime: context.getRemainingTimeInMillis(),
         memory: context.memoryLimitInMB,
